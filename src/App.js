@@ -7,8 +7,10 @@ import {
 import Home from './components/Home/Home';
 import Quiz from './components/Quiz/Quiz';
 import Result from './components/Result/Result';
+import { useState } from 'react';
 
 function App() {
+  
   return (
     <div className="App">
        <Router>
