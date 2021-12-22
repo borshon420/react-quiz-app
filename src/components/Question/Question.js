@@ -4,6 +4,7 @@ const Question = ({ques}) => {
     const {question, correct_answer, incorrect_answers} = ques;
     
     const [options, setOptions] = useState([]);
+    const [score, setScore] = useState("");
 
   useEffect(() => {
     setOptions(
@@ -16,24 +17,40 @@ const Question = ({ques}) => {
   }, [question]);
 
   
-  console.log(options)
+  console.log(score)
 
   const handleShuffle = (options) => {
     return options.sort(() => Math.random() - 0.5);
   };
 
+
+  const handleCheck = (i) => {
+    if (i === correct_answer){
+        setScore("right"); 
+    } else{
+        setScore("wrong");
+    }
+    console.log(correct_answer)
+  };
+
+  
   
     return (
         <div>
             <div className="singleQuestion">
-                <h2>{question}</h2>
+                <h2>{question}{score}</h2>
                 <div className="options">
                 </div>
                 <div className="btn">
-                    <button>{options[0]}</button>
-                    <button>{options[1]}</button>
-                    <button>{options[2]}</button>
-                    <button>{options[3]}</button>
+                    {
+                        options.map((i) => <button
+                        key={i}
+                        onClick={() => handleCheck(i)}
+                      >
+                        {i}
+                      </button>)
+                            
+                    }
                 </div> 
             </div>
         </div>
