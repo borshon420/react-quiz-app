@@ -6,7 +6,7 @@ const Quiz = () => {
     const [quiz, setQuiz] = useState([]);
     
     useEffect(()=>{
-        fetch('https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple')
+        fetch('https://opentdb.com/api.php?amount=10&category=18&difficulty=easy')
         .then(res => res.json())
         .then(data => setQuiz(data.results))
     },[]);
