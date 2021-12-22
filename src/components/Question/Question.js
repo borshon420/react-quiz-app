@@ -26,9 +26,9 @@ const Question = ({ques}) => {
 
   const handleCheck = (i) => {
     if (i === correct_answer){
-        setScore("right"); 
+        setScore("Right"); 
     } else{
-        setScore("wrong");
+        setScore("Wrong please try again");
     }
     console.log(correct_answer)
   };
@@ -38,7 +38,7 @@ const Question = ({ques}) => {
     return (
         <div>
             <div className="singleQuestion">
-                <h2>{question}{score}</h2>
+                <h2>{question}</h2>
                 <div className="options">
                 </div>
                 <div className="btn">
@@ -52,6 +52,11 @@ const Question = ({ques}) => {
                             
                     }
                 </div> 
+                <div>
+                    {
+                        score && <h2>Your Answer is: {score}</h2>
+                    }
+                </div>
             </div>
         </div>
     );
