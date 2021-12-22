@@ -14,10 +14,10 @@ const Question = ({ques}) => {
           ...incorrect_answers,
         ])
     );
+    
   }, [question]);
 
-  
-  console.log(score)
+
 
   const handleShuffle = (options) => {
     return options.sort(() => Math.random() - 0.5);
@@ -38,6 +38,7 @@ const Question = ({ques}) => {
     return (
         <div>
             <div className="singleQuestion">
+                
                 <h2>{question}</h2>
                 <div className="options">
                 </div>
@@ -52,7 +53,7 @@ const Question = ({ques}) => {
                             
                     }
                 </div> 
-                <div>
+                <div style={{marginBottom: 20}}>
                     {
                         score && <h2>Your Answer is: {score}</h2>
                     }
